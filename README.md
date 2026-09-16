@@ -222,32 +222,6 @@ Runs 11 automated test assertions verifying:
 
 ---
 
-## 🌐 Deployment Instructions (Vercel + Neon PostgreSQL)
-
-This application is configured for deployment on **Vercel** with a serverless **Neon PostgreSQL** database.
-
-### 1. Deploy Backend to Vercel
-1. In Vercel, click **Add New** → **Project** and select your GitHub repository.
-2. In the project setup settings:
-   - **Root Directory**: Click edit and select `backend`.
-   - **Framework Preset**: Other (automatically uses `@vercel/node` from `vercel.json`).
-3. Under **Environment Variables**, add:
-   - `DATABASE_URL` = `<your-neon-postgres-connection-string>`
-4. Click **Deploy**.
-5. Once deployed, note down your backend URL (e.g., `https://your-backend-project.vercel.app`).
-
-### 2. Deploy Frontend to Vercel
-1. In Vercel, click **Add New** → **Project** and select the same GitHub repository.
-2. In the project setup settings:
-   - **Root Directory**: Click edit and select `frontend`.
-   - **Framework Preset**: `Vite`.
-3. Under **Environment Variables**, add:
-   - `VITE_API_BASE_URL` = `<your-deployed-backend-url-from-step-1>`
-4. Click **Deploy**.
-5. Your live frontend is now connected to your live serverless backend!
-
----
-
 ## ⚖️ Trade-offs & Future Improvements (Given More Time)
 1. **Queue Processor Worker (BullMQ / Redis)**:
    - In a production architecture with heavy background jobs, we would pair NestJS with `@nestjs/bullmq` and Redis.
