@@ -4,6 +4,16 @@ A full-stack Job Queue Management Dashboard built with **NestJS** (Backend) and 
 
 ---
 
+## 🔗 Live Deployment & Submission Links
+
+- **Live Frontend URL**: [https://mini-job-queue-dashboard-xdh5.vercel.app/](https://mini-job-queue-dashboard-xdh5.vercel.app/)
+- **Live Backend / API URL**: [https://mini-job-queue-dashboard-rosy.vercel.app/](https://mini-job-queue-dashboard-rosy.vercel.app/)
+  - API Health/Jobs: `https://mini-job-queue-dashboard-rosy.vercel.app/jobs`
+  - API Metrics: `https://mini-job-queue-dashboard-rosy.vercel.app/jobs/metrics`
+- **GitHub Repository**: [https://github.com/NamanBhatia-NB/Mini_Job_Queue_Dashboard](https://github.com/NamanBhatia-NB/Mini_Job_Queue_Dashboard)
+
+---
+
 ## 🌟 Architecture Overview
 
 ```
