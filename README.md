@@ -212,23 +212,29 @@ Runs 11 automated test assertions verifying:
 
 ---
 
-## 🌐 Deployment Instructions
+## 🌐 Deployment Instructions (Vercel + Neon PostgreSQL)
 
-### Backend (Render / Railway / Fly.io)
-1. Push the repository to GitHub.
-2. Create a new Web Service on **Render** (or Railway).
-3. Set root directory to `backend`.
-4. Build command: `npm install && npx prisma db push && npm run build`
-5. Start command: `npm run start:prod`
-6. Set environment variable: `PORT=4000`, `DATABASE_URL=file:./dev.db` (or attach PostgreSQL and set `provider = "postgresql"` in `schema.prisma`).
+This application is configured for deployment on **Vercel** with a serverless **Neon PostgreSQL** database.
 
-### Frontend (Vercel)
-1. Create a new project on **Vercel** pointing to the repository.
-2. Set root directory to `frontend`.
-3. Framework Preset: `Vite`.
-4. Environment Variable:
-   - `VITE_API_BASE_URL` = `<your-backend-live-url>`
-5. Deploy!
+### 1. Deploy Backend to Vercel
+1. In Vercel, click **Add New** → **Project** and select your GitHub repository.
+2. In the project setup settings:
+   - **Root Directory**: Click edit and select `backend`.
+   - **Framework Preset**: Other (automatically uses `@vercel/node` from `vercel.json`).
+3. Under **Environment Variables**, add:
+   - `DATABASE_URL` = `<your-neon-postgres-connection-string>`
+4. Click **Deploy**.
+5. Once deployed, note down your backend URL (e.g., `https://your-backend-project.vercel.app`).
+
+### 2. Deploy Frontend to Vercel
+1. In Vercel, click **Add New** → **Project** and select the same GitHub repository.
+2. In the project setup settings:
+   - **Root Directory**: Click edit and select `frontend`.
+   - **Framework Preset**: `Vite`.
+3. Under **Environment Variables**, add:
+   - `VITE_API_BASE_URL` = `<your-deployed-backend-url-from-step-1>`
+4. Click **Deploy**.
+5. Your live frontend is now connected to your live serverless backend!
 
 ---
 
