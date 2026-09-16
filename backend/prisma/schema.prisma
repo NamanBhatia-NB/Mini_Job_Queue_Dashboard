@@ -1,0 +1,18 @@
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Job {
+  id        String   @id @default(uuid())
+  title     String
+  type      String
+  status    String   @default("pending") // 'pending' | 'running' | 'completed' | 'failed'
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  version   Int      @default(1) // Used for Optimistic Concurrency Control
+}

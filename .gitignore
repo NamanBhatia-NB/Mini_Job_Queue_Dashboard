@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Production build outputs
+dist/
+build/
+
+# Local Environment & Secrets
+.env
+.env.local
+.env.*.local
+
+# SQLite databases
+*.db
+*.db-journal
+
+# IDE & System files
+.vscode/
+.idea/
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
