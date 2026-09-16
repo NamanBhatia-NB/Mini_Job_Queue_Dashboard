@@ -1,7 +1,9 @@
 import axios from 'axios';
 import { Job, JobMetrics, CreateJobInput, UpdateJobStatusInput } from '../types/job';
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:4000';
+const API_BASE_URL =
+  import.meta.env.VITE_API_BASE_URL ||
+  (import.meta.env.PROD ? '/api' : 'http://localhost:4000');
 
 const apiClient = axios.create({
   baseURL: API_BASE_URL,

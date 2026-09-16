@@ -14,6 +14,16 @@ async function createNestServer() {
     allowedHeaders: 'Content-Type, Accept, Authorization',
   });
 
+  // Strip /api prefix if present so both /api/jobs and /jobs route seamlessly
+  app.use((req: any, _res: any, next: any) => {
+    if (req.url.startsWith('/api/')) {
+      req.url = req.url.replace(/^\/api/, '');
+    } else if (req.url === '/api') {
+      req.url = '/';
+    }
+    next();
+  });
+
   app.useGlobalPipes(
     new ValidationPipe({
       whitelist: true,
@@ -48,6 +58,16 @@ async function bootstrap() {
     origin: '*',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
     allowedHeaders: 'Content-Type, Accept, Authorization',
+  });
+
+  // Strip /api prefix if present so both /api/jobs and /jobs route seamlessly
+  app.use((req: any, _res: any, next: any) => {
+    if (req.url.startsWith('/api/')) {
+      req.url = req.url.replace(/^\/api/, '');
+    } else if (req.url === '/api') {
+      req.url = '/';
+    }
+    next();
   });
 
   app.useGlobalPipes(
